@@ -8,7 +8,7 @@ public class Car {
     public DateTime parkedTime{get; set;}
 
        public override string ToString() {
-        return $"registrationNumber: {registrationNumber}, colour: {colour}, vehicle: {vehicle}, fee: {fee}";
+        return $"{registrationNumber}, {colour}, {vehicle}, {fee}";
     }                     
 
 }

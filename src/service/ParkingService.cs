@@ -47,29 +47,10 @@ public class ParkingService{
             Console.WriteLine("slot number" + slotNumber + "is free");
         }
         else{
-            Console.WriteLine("slot number" + slotNumber + "already empty");
+            Console.WriteLine("slot number " + slotNumber + " already empty");
         }
     }
 
-    public void lotAvailable(){
-        Console.WriteLine("Available parking lot: ");
-        foreach (var slotNumber in parkingRepository.lotAvailable())
-        {
-            Console.WriteLine(slotNumber);
-            
-        }
-
-    }
-
-
-    public void lotFull(){
-        Console.WriteLine("not available parking lot: ");
-        foreach (var slotNumber in parkingRepository.lotFull())
-        {
-            Console.WriteLine(slotNumber);
-        }
-
-    }
 
     public void OddregistrationNumbers(){
         List<string> ?registrationNumbers = parkingRepository?.registrationNumbers();
@@ -146,7 +127,8 @@ public class ParkingService{
             TimeSpan timeDifference =  DateTime.Now - car.Value.parkedTime;
             int hoursDifference =(int) timeDifference.TotalHours;
             car.Value.fee = car.Value.fee + 3000*hoursDifference;
-            Console.WriteLine("Slot " + car.Key + car.Value);
+            Console.WriteLine("Slot   No.     type    colour  fee");
+            Console.WriteLine($"{car.Key} {car.Value}");
             }
             
         }

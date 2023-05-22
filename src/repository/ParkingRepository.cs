@@ -46,18 +46,6 @@ public class ParkingRepository{
 
     }
 
-    public List<int> lotFull(){
-        List<int> lots = new List<int>();
-        foreach (var lotNumber in slot.Keys)
-        {
-            if(slot[lotNumber] !=null ){
-                lots.Add(lotNumber);
-            }
-            
-        }
-        return lots;
-
-    }
 
     public List<int> lotAvailable(){
         List<int> lots = new List<int>();
