@@ -6,7 +6,6 @@ public class ParkingRepository{
 
     
     public ParkingRepository(){}
-    private System.Timers.Timer _timer;
     Dictionary<int, Car> slot = new Dictionary<int, Car>();
 
     public Parking createParking (int totalSlot){

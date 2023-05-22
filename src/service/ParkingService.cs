@@ -13,14 +13,14 @@ public class ParkingService{
     }
 
     public void createParking (int totalSlot){
-        parkingRepository.createParking(totalSlot);
+        parkingRepository?.createParking(totalSlot);
         Console.WriteLine("Successfully created parking lot with " + totalSlot + " slots");
     }
 
     public void parkedCars( Car car){
-        var parkedCars = parkingRepository.getAllParkedCar();
+        var parkedCars = parkingRepository?.getAllParkedCar();
         int totalCars = 0;
-        foreach (var slotNumber in parkedCars.Keys)
+        foreach (var slotNumber in parkedCars?.Keys)
         {
             if(parkedCars[slotNumber] != null){
                 totalCars  = totalCars +  1;
@@ -35,15 +35,15 @@ public class ParkingService{
         }
 
         else{
-                parkingRepository.parkCar(car);
+                parkingRepository?.parkCar(car);
         }
 
 
     }
     public void checkout(int slotNumber){
-        var parkedCar = parkingRepository.getAllParkedCar(); 
+        var parkedCar = parkingRepository?.getAllParkedCar(); 
         if(parkedCar[slotNumber] !=null){
-            parkingRepository.checkout(slotNumber);
+            parkingRepository?.checkout(slotNumber);
             Console.WriteLine("slot number" + slotNumber + "is free");
         }
         else{
@@ -72,7 +72,7 @@ public class ParkingService{
     }
 
     public void OddregistrationNumbers(){
-        List<string> registrationNumbers = parkingRepository.registrationNumbers();
+        List<string> ?registrationNumbers = parkingRepository?.registrationNumbers();
         List<string> oddRegistNumber = new List<string>();
 
         foreach (var registNumber in registrationNumbers)
@@ -105,14 +105,14 @@ public class ParkingService{
 
 
     public void EvenregistrationNumbers(){
-        List<string> registrationNumbers = parkingRepository.registrationNumbers();
+        List<string> ?registrationNumbers = parkingRepository?.registrationNumbers();
         List<string> EvenRegistNumber = new List<string>();
 
         foreach (var registNumber in registrationNumbers)
         {
             string[] noplatDipisaah = registNumber.Split('-');
             int noplat = int.Parse(noplatDipisaah[1]);
-            if(noplat % 2 == 0){
+            if(noplat%2 == 0){
                 EvenRegistNumber.Add(registNumber);
 
             }    
@@ -134,12 +134,12 @@ public class ParkingService{
     }
 
     public void TotalVehicleByType(string type){
-        Console.WriteLine(parkingRepository.TotalVehicleByType(type));
+        Console.WriteLine(parkingRepository?.TotalVehicleByType(type));
     }
 
 
     public void getAllParkedCar(){
-        var getAllCars = parkingRepository.getAllParkedCar();
+        var getAllCars = parkingRepository?.getAllParkedCar();
         foreach (var car in getAllCars)
         {
             if(car.Value != null){
@@ -154,7 +154,7 @@ public class ParkingService{
 
     public void registNumberVehiclewithColour(string colour){
         
-        var registNumbers = parkingRepository.findCarbyColour(colour);
+        var registNumbers = parkingRepository?.findCarbyColour(colour);
         foreach (var registNumber in registNumbers)
         {
             Console.Write(registNumber + ",");
@@ -164,7 +164,7 @@ public class ParkingService{
 
     public void slotwithvehicleColour(string colour){
         List <int> slotwithvehicleColour = new List<int>();
-        var cars = parkingRepository.getAllParkedCar();
+        var cars = parkingRepository?.getAllParkedCar();
         foreach (var slotNumber in cars.Keys)
         {
             if(cars[slotNumber] != null){
@@ -185,11 +185,11 @@ public class ParkingService{
     }
 
     public void findSlotforRegistNumber(string registNumber){
-        if(parkingRepository.findSlotforRegistNumber(registNumber) == 0){
+        if(parkingRepository?.findSlotforRegistNumber(registNumber) == 0){
             Console.WriteLine("Not found");
         }
         else{
-            Console.WriteLine(parkingRepository.findSlotforRegistNumber(registNumber));
+            Console.WriteLine(parkingRepository?.findSlotforRegistNumber(registNumber));
         }
         
     }
